@@ -87,7 +87,7 @@ Dans `/docs`, les bornes sont visibles dans le schéma de requête `SensorReadin
 
 - ADR : [docs/adr/000-modele.md](docs/adr/000-modele.md) (choix du modèle) et [docs/adr/002-validation.md](docs/adr/002-validation.md) (validation et 503)
 - Lien de la pull request : https://github.com/kenzaez/dev-dep-appli-intelligentes/pull/1
-- Le tag `tp1` existe sur GitHub : à vérifier.
+- Le tag `tp1` existe sur GitHub : oui, il pointe sur le commit de fusion de la pull request (`678bf99`) : https://github.com/kenzaez/dev-dep-appli-intelligentes/releases/tag/tp1
 - Qui a relu la pull request, et quel commentaire a-t-il laissé ? À compléter après la relecture.
 
 ## 8. Ce qui reste flou
