@@ -1,6 +1,6 @@
 # Compte rendu · TP3 : une interface Streamlit pour MaintAI
 
-**Groupe :** …  ·  **Membres :** …  ·  **Date :** 12/11/2026
+**Groupe :** 1  ·  **Membres :**ezzahed kenza  ·  **Date :** 12/11/2026
 
 ---
 
