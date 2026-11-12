@@ -1,6 +1,6 @@
 # Compte rendu · TP3 : une interface Streamlit pour MaintAI
 
-**Groupe :** …  ·  **Membres :** …  ·  **Date :** …
+**Groupe :** G1  ·  **Membres :** Oumnia El Fatimi  ·  **Date :** 12/11/2026 10:00
 
 > Les observations qui n'ont pas pu être vérifiées dans cette copie sont signalées comme telles.
 
