@@ -1,0 +1,54 @@
+6. ARchitecture de conception
+voir fichier png
+
+7. Choix technologiques
+# Préparer les données
+- Outils : Python + pandas
+- Besoin : nettoyer les données de commandes et créer les variables utiles (saison, distance, poids, vendeur, délai estimé)
+- Justification : nos données sont des tableaux et pandas est fait pour les manipuler facilement
+# Prédire la probabilité de retard
+- Outils : scikit-learn + LightGBM
+- Besoin : estimer, pour chaque commande non livrée, la probabilité qu'elle arrive en retard
+- Justification :
+  - LightGBM est très performant sur les données en tableau
+  - L'entraînement est rapide
+  - Aucune carte graphique n'est nécessaire
+# Mesurer la qualité du modèle
+- Outils : scikit-learn 
+- Besoin: calculer le rappel, la précision et le PR AUC 
+- Justification : ces métriques sont déjà disponibles, donc le critère d'acceptation se vérifie sans rien coder à la main
+# Fournir le score à l'application
+- Outils : FastAPI
+- Besoin : donner la probabilité de retard d'une commande en moins d'une seconde
+- Justification :
+  - Permet de respecter le critère « temps de réponse < 1 s » 
+  - Génère automatiquement la documentation de l'API
+# Afficher les commandes à risque
+- Outil : Streamlit
+- Besoin : montrer au responsable du suivi logistique la liste des commandes à alerter
+- Justification : permet de construire un tableau de bord en Python, sans développer une interface web complète
+
+8. Risques, éthique, confidentialité
+- Données personnelles ? Non : le dataset Olist ne contient ni nom, ni adresse, ni contact. Il reste seulement des identifiants clients déjà anonymisés et un préfixe de code postal (ville et état), qui ne permettent pas d'identifier directement une personne
+- S'en passer ou anonymiser ? Pas besoin d'anonymiser davantage, Olist l'a déjà fait. Par précaution, les identifiants clients sont exclus de l'entraînement et la localisation est réduite à un état ou à une distance vendeur-client. Le modèle n'a pas besoin de l'identité du client
+- Qui peut être lésé ? Le client dont le retard n'est pas détecté ; le vendeur injustement signalé comme « mauvais » ; l'équipe, qui perd du temps sur de fausses alertes
+- Les données couvrent-elles tous les cas ? Non : elles couvrent une seule marketplace au Brésil, entre 2016 et 2018, avec peu de pics (soldes, fêtes)
+- Quelle erreur coûte le plus, et à qui ? Le retard non détecté : client mécontent, réclamation, remboursement pour la marketplace. C'est pourquoi on optimise le rappel à précision minimale fixée
+- Qui valide et peut corriger ? Le responsable logistique décide, le score n'est qu'une aide. Il peut ignorer une alerte, et ses retours (alerte utile ou non) servent à réajuster le seuil
+- Des données sortent-elles de l'organisation ? Non pour le modèle et l'API, qui sont hébergés en interne
+- Comment le détourner ? Utiliser les scores pour sanctionner automatiquement des vendeurs, ou pour refuser des commandes
+
+9. Limites et hors périmètre
+Limites
+- Le dataset ne contient pas le transporteur : le modèle ne peut pas savoir quel transporteur a livré la commande
+- Les données couvrent une seule marketplace au Brésil, entre 2016 et 2018 : le modèle peut être moins fiable sur une autre période, un autre pays ou un autre contexte
+- Les retards sont minoritaires (de l'ordre de 8 % des commandes livrées, à vérifier dans notre analyse), ce qui rend leur détection plus difficile
+- Les seuils d'acceptation (rappel >= 0.60, précision >= 0.40) sont provisoires et seront ajustés après le calcul de la baseline
+- Le modèle donne une probabilité de retard, pas la cause du retard
+
+Hors périmètre
+- Aucune action automatique : pas d'envoi de message au client ni de relance sans validation du responsable logistique
+- Pas de sanction ni de notation automatique des vendeurs
+- Pas de suivi GPS du colis en temps réel
+- Pas d'intégration avec un vrai CRM : le responsable retrouve le contact du client dans l'outil existant de la marketplace, à partir du numéro de commande
+- Pas d'analyse des commentaires des avis clients
