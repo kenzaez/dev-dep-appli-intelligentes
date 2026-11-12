@@ -86,7 +86,7 @@ Dans `/docs`, les bornes sont visibles dans le schéma de requête `SensorReadin
 ## 7. Le rendu Git
 
 - ADR : [docs/adr/000-modele.md](docs/adr/000-modele.md) (choix du modèle) et [docs/adr/002-validation.md](docs/adr/002-validation.md) (validation et 503)
-- Lien de la pull request : à compléter après sa création.
+- Lien de la pull request : https://github.com/kenzaez/dev-dep-appli-intelligentes/pull/1
 - Le tag `tp1` existe sur GitHub : à vérifier.
 - Qui a relu la pull request, et quel commentaire a-t-il laissé ? À compléter après la relecture.
 
