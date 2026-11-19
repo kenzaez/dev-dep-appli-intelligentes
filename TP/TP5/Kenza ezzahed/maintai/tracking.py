@@ -36,4 +36,15 @@ def log_run(params: dict, metrics: dict, model, X_example, data_path: Path) -> s
     #        - le modèle :        mlflow.sklearn.log_model(model, name="model", input_example=X_example,
     #                                                      skops_trusted_types=TRUSTED_TYPES)
     #   4. renvoyer l'identifiant : run.info.run_id
-    return ""
+    mlflow.set_experiment(EXPERIMENT)
+    with mlflow.start_run() as run:
+        mlflow.log_params(params)
+        mlflow.log_param("data_md5", file_md5(data_path))
+        mlflow.log_metrics(metrics)
+        mlflow.sklearn.log_model(
+            model,
+            name="model",
+            input_example=X_example,
+            skops_trusted_types=TRUSTED_TYPES,
+        )
+    return run.info.run_id
