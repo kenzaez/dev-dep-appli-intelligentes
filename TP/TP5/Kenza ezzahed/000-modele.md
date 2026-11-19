@@ -1,4 +1,4 @@
-# ADR 004 : choix du modèle et du seuil d'alerte de MaintAI
+# ADR 000 : choix du modèle et du seuil d'alerte de MaintAI
 
 Date : 19/11/2026 · Auteurs : Kenza Ezzahed
 

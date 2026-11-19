@@ -143,7 +143,7 @@ Non. Le recall baisse un peu (0.741 contre 0.750) et la precision monte un peu (
 
 ## 5. Décision : l'ADR 004
 
-Voir [`docs/adr/004-choix-du-modele.md`](docs/adr/004-choix-du-modele.md) : régression logistique, C = 1, seuil 0.2. Run MLflow `954180d6e5ff4ab4b7d5f3967fd1c02c`, données `data_md5` = `73e0b7cb3c6f795c70c3ddf970b99c15` (v1).
+Voir [`000-modele.md`](000-modele.md) : régression logistique, C = 1, seuil 0.2. Run MLflow `954180d6e5ff4ab4b7d5f3967fd1c02c`, données `data_md5` = `73e0b7cb3c6f795c70c3ddf970b99c15` (v1).
 
 ## 6. Questions de compréhension
 
