@@ -1,0 +1,22 @@
+# Fichiers locaux et caches inutiles dans l'image.
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.git/
+dist/
+build/
+*.egg-info/
+tests/
+
+# Les donnees et le modele sont fournis au conteneur au lancement, pas construits dans l'image.
+data/
+models/
+
+# Ne jamais envoyer les secrets dans le contexte de build.
+.env
+
+# Fichiers de suivi et artefacts generes localement.
+mlflow.db
+mlruns/
+.dvc/
