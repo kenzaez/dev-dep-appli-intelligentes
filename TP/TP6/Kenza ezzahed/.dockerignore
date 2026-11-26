@@ -1,0 +1,21 @@
+# Ce qui n'entre jamais dans l'image : lourd, local ou secret
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.git/
+dist/
+build/
+*.egg-info/
+tests/
+# Les données et le modèle : ils arrivent au lancement, par des volumes
+data/
+models/
+# Le secret : il arrive au lancement, par --env-file .env
+.env
+# MLflow et DVC : outils d'entraînement et de versionnement, inutiles pour servir
+mlflow.db
+mlruns/
+.dvc/
+# L'environnement virtuel créé dans TP/TP6 (hors de l'image aussi)
+TP/
